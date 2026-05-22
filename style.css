@@ -192,24 +192,25 @@ body {
 }
 
 .btn-primary {
-    background: var(--btn-green);
-    /* Borda verde para dar o efeito de botão vazado por fora (pode-se adicionar outline, mas no design é sólido) */
-    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+    background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
+    transform: translateY(-4px) scale(1.02);
+    filter: brightness(0.85);
+    box-shadow: 0 12px 25px rgba(16, 185, 129, 0.6);
 }
 
 .btn-secondary {
-    background: var(--btn-purple);
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
 }
 
 .btn-secondary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(79, 70, 229, 0.4);
+    transform: translateY(-4px) scale(1.02);
+    filter: brightness(0.85);
+    box-shadow: 0 12px 25px rgba(99, 102, 241, 0.6);
 }
 
 /* ==========================================================================
