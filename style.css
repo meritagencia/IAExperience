@@ -1,0 +1,322 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #030408; /* Fundo extremamente escuro, levemente azulado */
+    --text-light: #ffffff;
+    --text-muted: #a1a1aa;
+    
+    /* Cores de Destaque */
+    --primary-gradient: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%); /* Azul Tech */
+    --btn-green: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+    --btn-purple: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+    --overlay-blue: #0ea5e9;
+    
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background Principal (Imagem do topo) */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    background-image: url('Captura\ de\ Tela\ 2026-05-04\ às\ 12.47.27.png'); /* Usando a imagem da pasta */
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    /* Adicionando um leve degradê na parte de baixo para mesclar com o fundo preto */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Espaçador para o vídeo não cobrir o rosto na imagem de fundo */
+.spacer-top {
+    height: 480px; /* Ajuste para descer o vídeo (depende da altura real do rosto na imagem) */
+    width: 100%;
+}
+
+/* ==========================================================================
+   VIDEO SECTION
+   ========================================================================== */
+.video-section {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: var(--border-radius);
+    border: 2px solid #005a9c; /* Borda azul neon sutil */
+    box-shadow: 0 0 30px rgba(0, 90, 156, 0.4);
+    overflow: hidden;
+}
+
+/* Thumbnail Placeholder */
+.video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+/* Overlay Estilo PandaVideo */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    transition: opacity 0.3s ease;
+}
+
+.overlay-content {
+    background-color: var(--overlay-blue);
+    padding: 24px 48px;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.5);
+    transform: scale(1);
+    transition: transform 0.2s ease;
+    animation: pulse 2s infinite;
+}
+
+.overlay-content:hover {
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(14, 165, 233, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+    }
+}
+
+.overlay-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.mute-icon {
+    width: 48px;
+    height: 48px;
+    color: #fff;
+}
+
+.overlay-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================================================
+   CALL TO ACTION BUTTONS
+   ========================================================================== */
+.cta-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 80px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: var(--btn-green);
+    /* Borda verde para dar o efeito de botão vazado por fora (pode-se adicionar outline, mas no design é sólido) */
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn-secondary {
+    background: var(--btn-purple);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(79, 70, 229, 0.4);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    width: 100%;
+    background-color: transparent;
+    padding: 40px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-links a {
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.social-links a svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-links a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.1);
+}
+
+.footer-copy {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .spacer-top {
+        height: 300px;
+    }
+    
+    .hero-bg {
+        height: 500px;
+        background-position: center top;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .btn {
+        font-size: 1rem;
+        padding: 16px 20px;
+    }
+    
+    .overlay-content {
+        padding: 16px 32px;
+    }
+    
+    .overlay-title {
+        font-size: 1rem;
+    }
+    
+    .mute-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
